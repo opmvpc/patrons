@@ -1,7 +1,7 @@
 # Patrons
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
 ## Requirements
