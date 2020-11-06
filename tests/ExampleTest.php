@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Opmvpc\Patrons\Tests;
 
 use PHPUnit\Framework\TestCase;
 
