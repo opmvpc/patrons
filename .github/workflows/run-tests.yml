@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer dumpautoload
+          rm -rf vendor
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-scripts
 
       - name: Execute tests
