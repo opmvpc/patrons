@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer dumpautoload
-          composer install --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-scripts
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-scripts
 
       - name: Execute tests
         run: vendor/bin/phpunit
