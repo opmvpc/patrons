@@ -31,7 +31,9 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
-        run: composer install --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-scripts
+        run: |
+        composer dumpautoload
+        composer install --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-scripts
 
       - name: Execute tests
         run: vendor/bin/phpunit
