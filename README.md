@@ -28,7 +28,7 @@ Permet de forcer une classe à n'être instanciée qu'une seule fois. Pour mettr
 
 #### Singleton Générique
 
-[GenericSingleton.php](src/Singleton/GenericSingleton.php)
+[SingletonGeneric.php](src/Singleton/SingletonGeneric.php)
 
 *Problème:* En php, on a pas encore de types génériques. On peut utiliser Psalm pour les simuler avec la balise "@ template T" Malheureusement, elle ne fonctionne pas pour les attributs statiques.
 
