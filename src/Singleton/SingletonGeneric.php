@@ -1,25 +1,29 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Opmvpc\Patrons\Singleton;
 
-/**
- * @psalm-immutable
- */
-class SingletonGeneric
+abstract class SingletonGeneric
 {
-    private static ?SingletonGeneric $instance = null;
+    private static array $instances = [];
 
-    private function __construct()
+    /**
+     *
+     * @return void
+     */
+    final protected function __construct()
     {
     }
 
-    public static function getInstance(): SingletonGeneric
+    public static function getInstance(): self
     {
-        if (static::$instance === null) {
-            static::$instance = new SingletonGeneric();
+        $class = get_called_class();
+
+        if (! array_key_exists($class, static::$instances)) {
+            static::$instances[$class] = new static();
         }
 
-        return static::$instance;
+        return static::$instances[$class];
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Opmvpc\Patrons\Singleton;
@@ -14,7 +15,7 @@ class Singleton
     {
     }
 
-    public static function getInstance(): Singleton
+    public static function getInstance(): self
     {
         if (static::$instance === null) {
             static::$instance = new Singleton();
