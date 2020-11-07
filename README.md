@@ -4,10 +4,10 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
-## Requirements
+# Requirements
 - php 7.4
 
-## Installation
+# 🛠 Installation
 
 You can install the package via composer:
 
@@ -15,18 +15,18 @@ You can install the package via composer:
 composer require opmvpc/patrons
 ```
 
-## Patrons de conception
+# 🗺 Patrons de conception
 
-### Singleton
+## Singleton
 
 Permet de forcer une classe à n'être instanciée qu'une seule fois. Pour mettre ce patron en oeuvre, on fait appel aux attributs statiques et mettant la visibilité private aux constructeurs.
 
-#### Singleton
+### Singleton classic
 [Singleton.php](src/Singleton/Singleton.php)
 
 *Problème:* la variable statique $instance est partagée pour toutes les classes qui étendent Singleton
 
-#### Singleton Générique
+### Singleton Générique
 
 [SingletonGeneric.php](src/Singleton/SingletonGeneric.php)
 
@@ -36,7 +36,7 @@ Permet de forcer une classe à n'être instanciée qu'une seule fois. Pour mettr
 
 [https://blog.cotten.io/how-to-screw-up-singletons-in-php-3e8c83b63189](https://blog.cotten.io/how-to-screw-up-singletons-in-php-3e8c83b63189)
 
-#### Comment ajouter la fonctionnalité Singleton à une classe.
+### Comment ajouter la fonctionnalité Singleton à une classe.
 *Solution:* On peut utiliser la réflexion pour recréer des classes en leur ajoutant les fonctionnalités d'un singleton. Exemple de création d'une SingletonFactory.
 
 [https://patrick-assoa-adou.medium.com/a-generic-php-singleton-the-long-of-it-661b1ead3981](https://patrick-assoa-adou.medium.com/a-generic-php-singleton-the-long-of-it-661b1ead3981)
@@ -74,7 +74,7 @@ function singletonize(\Closure $func)
 
 *Remarque:* C'est sencé être mieux d'utiliser l'injection de dépendances que Singleton que certains considèrent comme un anti-pattern
 
-#### Utilisation du pattern dans des gros projets
+### Utilisation du pattern dans des gros projets
 
 Usages fréquents:
 * DAO (accès db)
@@ -84,7 +84,7 @@ Usages fréquents:
 Exemple:
 * Laravel ServiceContainer
 
-#### Utilisation du pattern pour un dictionnaire en plusieurs langues
+### Utilisation du pattern pour un dictionnaire en plusieurs langues
 
 [DictSingleton.php](src/Singleton/Dict/DictSingleton.php)
 
@@ -93,6 +93,16 @@ Exemple:
 On peut instancier plusieurs classes qui étendent DictSingleton. On viole les principes du patron Singleton de base.
 
 *À quoi ça sert:* On est quand même certain que les différents dictiunaires ne seront instanciés qu'une fois et qu'on ne permet pas de modifier ces objets.
+
+## Abstract Factory
+Permet de créer des objets différents avec une API qui sera similaire.
+Exemple ici avec Des usines à voitures thermiques et électriques.
+
+[AbstractFactory.php](src/Factory/AbstractFactory/AbstractFactory.php)
+
+Utilisation:
+* Quand *plusieurs lignes de produits* à gérer
+* Un reader de fichier différent en fonction de l'OS
 
 ## Testing
 
