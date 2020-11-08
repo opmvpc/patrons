@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Opmvpc\Patrons\Creational\Singleton;
 
+use BadMethodCallException;
+
 /**
  * @psalm-immutable
  */
@@ -25,5 +27,15 @@ class Singleton
         }
 
         return static::$instance;
+    }
+
+    public function __clone()
+    {
+        throw new BadMethodCallException('Unauthorized operation');
+    }
+
+    public function __wakeup()
+    {
+        throw new BadMethodCallException('Unauthorized operation');
     }
 }

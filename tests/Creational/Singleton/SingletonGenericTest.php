@@ -2,6 +2,7 @@
 
 namespace Opmvpc\Patrons\Creational\Tests\Singleton;
 
+use BadMethodCallException;
 use Error;
 use Opmvpc\Patrons\Creational\Singleton\AnotherSingleton;
 use Opmvpc\Patrons\Creational\Singleton\MySingleton;
@@ -36,5 +37,19 @@ class SingletonGenericTest extends TestCase
     {
         $this->expectException(Error::class);
         $this->assertEquals(MySingleton::getInstance(), new MySingleton());
+    }
+
+    /** @test */
+    public function can_not_use_clone()
+    {
+        $this->expectException(BadMethodCallException::class);
+        MySingleton::getInstance()->__clone();
+    }
+
+    /** @test */
+    public function can_not_use_wakeup()
+    {
+        $this->expectException(BadMethodCallException::class);
+        MySingleton::getInstance()->__wakeup();
     }
 }
