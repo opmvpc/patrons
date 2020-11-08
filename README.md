@@ -1,13 +1,13 @@
-# Patrons
+# Patrons de conception
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
-# Requirements
+## Requirements
 - php 7.4
 
-# 🛠 Installation
+## 🛠 Installation
 
 You can install the package via composer:
 
@@ -15,7 +15,8 @@ You can install the package via composer:
 composer require opmvpc/patrons
 ```
 
-# 🗺 Patrons de conception
+# Creational
+
 
 ## Singleton
 
@@ -103,6 +104,69 @@ Exemple ici avec Des usines à voitures thermiques et électriques.
 Utilisation:
 * Quand *plusieurs lignes de produits* à gérer
 * Un reader de fichier différent en fonction de l'OS
+
+## Prototype
+Cloner des objets plutôt que de les créer par l'opération "new ObjectClass()". Se rélèle moins couteux et demande souvent moins de code quand on a besoin de plusieurs objets similaires.
+
+# Structural
+## Proxy
+
+## Decorator
+
+## Composite
+
+## Facade
+
+## Bridge
+
+## Flyweight
+
+## Adapter
+
+# Behavioral
+
+## Command
+
+## Memento
+
+## Observer
+
+## Visitor
+
+## Template
+
+## State
+
+## Interceptor
+
+## Configuration
+
+## TODO
+- [x] Découper en catégories (behavioral, creational, structural)
+- [ ] Méthodes clone et wakeup pour le pattern singleton
+- [ ] Générer les diagrammes de classe sur base du code
+- [ ] Ajouter les patterns vus aux cours
+    - [ ] Proxy
+    - [ ] Decorator
+    - [ ] Composite
+    - [ ] Prototype
+    - [ ] Bridge
+    - [ ] Configuration
+    - [ ] Observer
+    - [ ] Flyweight
+    - [ ] Intercepteur
+    - [ ] Visitor
+    - [ ] Command
+    - [ ] Facade
+    - [ ] Memento
+    - [ ] Playerrole
+    - [ ] Interpreter
+
+## Bibliographie
+
+Design Patterns PHP (plein de paterns avec exemples de code et diagrammes de classe)
+
+[https://designpatternsphp.readthedocs.io/en/latest/README.html](https://designpatternsphp.readthedocs.io/en/latest/README.html)
 
 ## Testing
 
