@@ -177,6 +177,26 @@ Sources:
 [https://www.geeksforgeeks.org/proxy-design-pattern/](https://www.geeksforgeeks.org/proxy-design-pattern/)
 
 ## Decorator
+Permet d'ajouter dynamiquement des fonctionnalités à un objet. Alternative à la création de sous-classes.
+
+[code du pattern Decorator](src/Structural/Decorator)
+
+![](src/Structural/Decorator/cd.png)
+
+### Comparaison Proxy et Decorator
+
+Ils ont une structure proche. Ils utilisent tous deux une interface pour créer des objets aux méthodes compatibles et chainables.
+
+Le but de pattern Proxy est "de représenter"/"être à la place" d'un autre objet, tandis que le but du pattern Decorator est d'ajouter des nouvelles fonctionnalités à des objets à l'exécution.
+
+### Problème des ScrollDecorator et du 3DDecorator
+
+L'effet 3D s'applique sur la fenetre mais pas sur les scrollbars.
+
+Solution:
+* On force une instance de classe à n'être référencée qu'une seule fois. (je suis pas certain d'avoir bien compris 😥)
+
+[https://en.wikipedia.org/wiki/Decorator_pattern#Motivation](https://en.wikipedia.org/wiki/Decorator_pattern#Motivation)
 
 ## Composite
 
@@ -218,7 +238,7 @@ Sources:
     - [x] Singleton
     - [x] Abstract Factory
     - [x] Proxy
-    - [ ] Decorator
+    - [x] Decorator
     - [ ] Composite
     - [ ] Prototype
     - [ ] Bridge

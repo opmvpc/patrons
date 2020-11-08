@@ -1,6 +1,6 @@
 <?php
 
-namespace Opmvpc\Patrons\Structure\Tests\Proxy;
+namespace Opmvpc\Patrons\Tests\Structure\Proxy;
 
 use Opmvpc\Patrons\Structural\Proxy\FakeVideo;
 use Opmvpc\Patrons\Structural\Proxy\MP4Video;

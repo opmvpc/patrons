@@ -1,6 +1,6 @@
 <?php
 
-namespace Opmvpc\Patrons\Creational\Tests\Singleton;
+namespace Opmvpc\Patrons\Tests\Creational\Singleton;
 
 use BadMethodCallException;
 use Opmvpc\Patrons\Creational\Singleton\Singleton;
