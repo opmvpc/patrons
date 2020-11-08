@@ -6,6 +6,9 @@ namespace Opmvpc\Patrons\Creational\Singleton;
 
 abstract class SingletonGeneric
 {
+    /**
+     * @var array
+     */
     private static array $instances = [];
 
     /**

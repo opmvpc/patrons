@@ -9,6 +9,9 @@ namespace Opmvpc\Patrons\Creational\Singleton;
  */
 class Singleton
 {
+    /**
+     * @var null|Singleton
+     */
     private static ?Singleton $instance = null;
 
     private function __construct()

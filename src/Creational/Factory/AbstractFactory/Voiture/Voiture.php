@@ -9,8 +9,16 @@ use Opmvpc\Patrons\Creational\Factory\AbstractFactory\Moteurs\AbstractMoteur;
 
 class Voiture
 {
+    /**
+     *
+     * @var AbstractMoteur
+     */
     private AbstractMoteur $moteur;
 
+    /**
+     *
+     * @var AbstractBatterie
+     */
     private AbstractBatterie $batterie;
 
     public function __construct(AbstractMoteur $moteur, AbstractBatterie $batterie)

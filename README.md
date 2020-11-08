@@ -25,13 +25,13 @@ Permet de forcer une classe à n'être instanciée qu'une seule fois. Pour mettr
 ![](src/Creational/Singleton/cd.png)
 
 ### Singleton classic
-[Singleton.php](src/Creational/Singleton/Singleton.php)
+[code de Singleton.php](src/Creational/Singleton/Singleton.php)
 
 *Problème:* la variable statique $instance est partagée pour toutes les classes qui étendent Singleton
 
 ### Singleton Générique
 
-[SingletonGeneric.php](src/Creational/Singleton/SingletonGeneric.php)
+[code de SingletonGeneric.php](src/Creational/Singleton/SingletonGeneric.php)
 
 *Problème:* En php, on a pas encore de types génériques. On peut utiliser Psalm pour les simuler avec la balise "@ template T" Malheureusement, elle ne fonctionne pas pour les attributs statiques.
 
@@ -89,9 +89,7 @@ Exemple:
 
 ### Utilisation du pattern pour un dictionnaire en plusieurs langues
 
-[DictSingleton.php](src/Creational/Singleton/Dict/DictSingleton.php)
-
-[DictEnglishSingleton.php](src/Creational/Singleton/Dict/DictEnglishSingleton.php)
+[code de l'exemple du dictionnaire](src/Creational/Singleton/Dict)
 
 On peut instancier plusieurs classes qui étendent DictSingleton. On viole les principes du patron Singleton de base.
 
@@ -101,7 +99,7 @@ On peut instancier plusieurs classes qui étendent DictSingleton. On viole les p
 Permet de créer des objets différents avec une API qui sera similaire.
 Exemple ici avec Des usines à voitures thermiques et électriques.
 
-[AbstractFactory.php](src/Creational/Factory/AbstractFactory/AbstractFactory.php)
+[code du pattern AbstractFactory](src/Creational/Factory/AbstractFactory/)
 
 ![](src/Creational/Factory/AbstractFactory/cd.png)
 
@@ -114,6 +112,29 @@ Cloner des objets plutôt que de les créer par l'opération "new ObjectClass()"
 
 # Structural
 ## Proxy
+
+Permet de cacher un objet couteux en ressources en ne manipulant qu'un objet proxy qui va s'occuper de créer et manipuler l'objet couteux pour nous.
+
+[code du pattern Proxy](src/Structural/Proxy)
+
+![](src/Structural/Proxy/cd.png)
+
+Utilisations:
+* On doit controller l'accès à un objet
+* On doit ajouter des fonctionnalités quand on accède à un objet.
+* Droits d'accès
+* Le proxy peut-être utilisé comme substitue d'un autre objet
+
+Types de proxies:
+* Protection proxy (controlle d'accès à une ressource)
+* Virtual proxy (exemple du placeholder video)
+* Remote proxy (objet local qui cache les appels à distance vers un serveur)
+
+Sources:
+
+[https://en.wikipedia.org/wiki/Proxy_pattern](https://en.wikipedia.org/wiki/Proxy_pattern)
+
+[https://www.geeksforgeeks.org/proxy-design-pattern/](https://www.geeksforgeeks.org/proxy-design-pattern/)
 
 ## Decorator
 
@@ -150,7 +171,7 @@ Cloner des objets plutôt que de les créer par l'opération "new ObjectClass()"
 - [ ] Méthodes clone et wakeup pour le pattern singleton
 - [x] Générer les diagrammes de classe sur base du code
 - [ ] Ajouter les patterns vus aux cours
-    - [ ] Proxy
+    - [x] Proxy
     - [ ] Decorator
     - [ ] Composite
     - [ ] Prototype

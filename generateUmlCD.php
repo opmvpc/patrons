@@ -31,8 +31,13 @@ function generateDiagrams(): void
 function getDirs(): array
 {
     $patterns = [
-        'Creational/Factory/AbstractFactory',
-        'Creational/Singleton',
+        'Creational' => [
+            'Factory/AbstractFactory',
+            'Singleton',
+        ],
+        'Structural' => [
+            'Proxy',
+        ],
     ];
 
     return createPath($patterns);
@@ -43,8 +48,10 @@ function createPath(array $patterns)
     $paths = [];
 
     $dataSource = 'src/';
-    foreach ($patterns as $pattern) {
-        $paths[] = $dataSource . $pattern;
+    foreach ($patterns as $categoryName => $category) {
+        foreach ($category as $pattern) {
+            $paths[] = $dataSource . $categoryName . '/' . $pattern;
+        }
     }
 
     return $paths;
