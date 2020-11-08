@@ -25,6 +25,8 @@ composer require opmvpc/patrons
 **[Creational](#Creational)**
 * [Singleton](#Singleton)
 * [Abstract Factory](#Abstract-Factory)
+* [Prototype](#Prototype)
+
 
 **[Structural](#Structural)**
 * [Proxy](#Proxy)
