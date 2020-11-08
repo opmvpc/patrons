@@ -4,7 +4,11 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
+Package php qui offre des exemples d'implémentation de patrons de conception.
 
+Le package est écrit à l'aide de l'analyseur statique de code psalm. Le code utilise un maximum les nouvelles fonctionnalités de typages offertes par php 7.4. Le code est couvert par les tests à 100%.
+
+Les différents diagrames de classe UML sont générés à partir du code. Le package utilisé ne représente pas les relations entre les classes.
 
 ## ⚙ Requirements
 - php ^7.4
@@ -16,7 +20,6 @@ You can install the package via composer:
 ```bash
 composer require opmvpc/patrons
 ```
-
 
 ## 📚 Table des matières
 **[Creational](#Creational)**
