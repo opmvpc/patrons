@@ -22,6 +22,8 @@ composer require opmvpc/patrons
 
 Permet de forcer une classe à n'être instanciée qu'une seule fois. Pour mettre ce patron en oeuvre, on fait appel aux attributs statiques et mettant la visibilité private aux constructeurs.
 
+![](src/Creational/Singleton/cd.png)
+
 ### Singleton classic
 [Singleton.php](src/Creational/Singleton/Singleton.php)
 
@@ -101,6 +103,8 @@ Exemple ici avec Des usines à voitures thermiques et électriques.
 
 [AbstractFactory.php](src/Creational/Factory/AbstractFactory/AbstractFactory.php)
 
+![](src/Creational/Factory/AbstractFactory/cd.png)
+
 Utilisation:
 * Quand *plusieurs lignes de produits* à gérer
 * Un reader de fichier différent en fonction de l'OS
@@ -144,7 +148,7 @@ Cloner des objets plutôt que de les créer par l'opération "new ObjectClass()"
 ## TODO
 - [x] Découper en catégories (behavioral, creational, structural)
 - [ ] Méthodes clone et wakeup pour le pattern singleton
-- [ ] Générer les diagrammes de classe sur base du code
+- [x] Générer les diagrammes de classe sur base du code
 - [ ] Ajouter les patterns vus aux cours
     - [ ] Proxy
     - [ ] Decorator

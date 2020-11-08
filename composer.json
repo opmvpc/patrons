@@ -17,13 +17,20 @@
     }
   ],
   "require": {
-    "php": "^7.4"
+    "php": "^7.4",
+    "bartlett/umlwriter": "2.0.0-rc.2"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.16",
     "phpunit/phpunit": "^9.3",
     "vimeo/psalm": "^3.11"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/llaville/graphviz"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Opmvpc\\Patrons\\": "src"
@@ -44,15 +51,5 @@
     "sort-packages": true
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/spatie"
-    },
-    {
-      "type": "other",
-      "url": "https://spatie.be/open-source/support-us"
-    }
-  ]
+  "prefer-stable": true
 }
