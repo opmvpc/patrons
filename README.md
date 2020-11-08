@@ -5,7 +5,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
 ## Requirements
-- php 7.4
+- php ^7.4
 
 ## 🛠 Installation
 
@@ -23,13 +23,13 @@ composer require opmvpc/patrons
 Permet de forcer une classe à n'être instanciée qu'une seule fois. Pour mettre ce patron en oeuvre, on fait appel aux attributs statiques et mettant la visibilité private aux constructeurs.
 
 ### Singleton classic
-[Singleton.php](src/Singleton/Singleton.php)
+[Singleton.php](src/Creational/Singleton/Singleton.php)
 
 *Problème:* la variable statique $instance est partagée pour toutes les classes qui étendent Singleton
 
 ### Singleton Générique
 
-[SingletonGeneric.php](src/Singleton/SingletonGeneric.php)
+[SingletonGeneric.php](src/Creational/Singleton/SingletonGeneric.php)
 
 *Problème:* En php, on a pas encore de types génériques. On peut utiliser Psalm pour les simuler avec la balise "@ template T" Malheureusement, elle ne fonctionne pas pour les attributs statiques.
 
@@ -87,9 +87,9 @@ Exemple:
 
 ### Utilisation du pattern pour un dictionnaire en plusieurs langues
 
-[DictSingleton.php](src/Singleton/Dict/DictSingleton.php)
+[DictSingleton.php](src/Creational/Singleton/Dict/DictSingleton.php)
 
-[DictEnglishSingleton.php](src/Singleton/Dict/DictEnglishSingleton.php)
+[DictEnglishSingleton.php](src/Creational/Singleton/Dict/DictEnglishSingleton.php)
 
 On peut instancier plusieurs classes qui étendent DictSingleton. On viole les principes du patron Singleton de base.
 
@@ -99,7 +99,7 @@ On peut instancier plusieurs classes qui étendent DictSingleton. On viole les p
 Permet de créer des objets différents avec une API qui sera similaire.
 Exemple ici avec Des usines à voitures thermiques et électriques.
 
-[AbstractFactory.php](src/Factory/AbstractFactory/AbstractFactory.php)
+[AbstractFactory.php](src/Creational/Factory/AbstractFactory/AbstractFactory.php)
 
 Utilisation:
 * Quand *plusieurs lignes de produits* à gérer
