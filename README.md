@@ -4,7 +4,9 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
-## Requirements
+
+
+## ⚙ Requirements
 - php ^7.4
 
 ## 🛠 Installation
@@ -14,6 +16,37 @@ You can install the package via composer:
 ```bash
 composer require opmvpc/patrons
 ```
+
+
+## 📚 Table des matières
+**[Creational](#Creational)**
+* [Singleton](#Singleton)
+* [Abstract Factory](#Abstract-Factory)
+
+**[Structural](#Structural)**
+* [Proxy](#Proxy)
+* [Decorator](#Decorator)
+* [Composite](#Composite)
+* [Facade](#Facade)
+* [Bridge](#Bridge)
+* [Flyweight](#Flyweight)
+* [Adapter](#Adapter)
+
+
+**[Behavioral](#Behavioral)**
+* [Command](#Command)
+* [Memento](#Memento)
+* [Observer](#Observer)
+* [Visitor](#Visitor)
+* [Template](#Template)
+* [State](#State)
+* [Interceptor](#Interceptor)
+* [Configuration](#Configuration)
+
+**[Autres Patterns](#Autres-Patterns)**
+* [Interpreter](#Interpreter)
+
+**[Bibliographie](#Bibliographie)**
 
 # Creational
 
@@ -168,11 +201,17 @@ Sources:
 
 ## Configuration
 
+# Autres Patterns
+## Interpreter
+
 ## TODO
 - [x] Découper en catégories (behavioral, creational, structural)
 - [x] Méthodes clone et wakeup pour le pattern singleton
 - [x] Générer les diagrammes de classe sur base du code
-- [ ] Ajouter les patterns vus aux cours (+ tests, description, réponses questions et Diagramme de classe )
+- [x] Faire une TOC
+- [ ] Ajouter les patterns vus aux cours (+ tests, description, réponses questions et Diagramme de classe, maj TOC)
+    - [x] Singleton
+    - [x] Abstract Factory
     - [x] Proxy
     - [ ] Decorator
     - [ ] Composite
