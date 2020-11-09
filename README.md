@@ -4,24 +4,36 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/opmvpc/patrons/run-tests?label=tests)](https://github.com/opmvpc/patrons/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/opmvpc/patrons.svg?style=flat-square)](https://packagist.org/packages/opmvpc/patrons)
 
-Package php qui offre des exemples d'implémentation de patrons de conception.
+Exemples d'implémentation de patrons de conception en php.
 
 Le package est écrit à l'aide de l'analyseur statique de code psalm. Le code utilise un maximum les nouvelles fonctionnalités de typages offertes par php 7.4. Le code est couvert par les tests à 100%.
 
 Les différents diagrames de classe UML sont générés à partir du code. Le package utilisé ne représente pas les relations entre les classes.
 
+![](patrons.jpg)
+The Gang of Four working on their next pattern idea.
+
 ## ⚙ Requirements
 - php ^7.4
+- composer
+
+Pour générer les diagrames de classe UML:
+- extension php imagick
+- graphviz installé (+ var d'environnement PATH pour windows)
 
 ## 🛠 Installation
 
 You can install the package via composer:
 
 ```bash
-composer require opmvpc/patrons
+git clone
+composer update
 ```
 
 ## 📚 Table des matières
+
+Attention, le contenu est en construction!
+
 **[Creational](#Creational)**
 * [Singleton](#Singleton)
 * [Abstract Factory](#Abstract-Factory)
@@ -85,33 +97,6 @@ En php on va faire en sorte que les méthodes magiques __construct(), __clone() 
 [https://patrick-assoa-adou.medium.com/a-generic-php-singleton-the-long-of-it-661b1ead3981](https://patrick-assoa-adou.medium.com/a-generic-php-singleton-the-long-of-it-661b1ead3981)
 
 *Solution:* Ou on passe par une fonction singletonize
-
-``` php
-<?php
-function singletonize(\Closure $func)
-{
-    $singled = new class($func)
-    {
-        // Hold the class instance.
-        private static $instance = null;
-        public function __construct($func = null)
-        {
-            if (self::$instance === null) {
-                self::$instance = $func();
-            }
-            return self::$instance;
-        }
-        // The singleton decorates the class returned by the closure
-        public function __call($method, $args)
-        {
-            return call_user_func_array([self::$instance, $method], $args);
-        }
-        private function __clone(){}
-        private function __wakeup(){}
-    };
-    return $singled;
-}
-```
 
 [https://patrick-assoa-adou.medium.com/a-generic-php-singleton-1985f17eeb6f](https://patrick-assoa-adou.medium.com/a-generic-php-singleton-1985f17eeb6f)
 
@@ -210,6 +195,11 @@ Solution:
 [https://en.wikipedia.org/wiki/Decorator_pattern#Motivation](https://en.wikipedia.org/wiki/Decorator_pattern#Motivation)
 
 ## Composite
+Exercice: Gestionnaire de fichiers avec le pattern Composite.
+
+[code du pattern Composite](src/Structural/Composite)
+
+![](src/Structural/Composite/cd.png)
 
 ## Facade
 
@@ -251,7 +241,7 @@ Solution:
     - [x] Proxy
     - [x] Decorator
     - [ ] Composite
-    - [ ] Prototype
+    - [x] Prototype
     - [ ] Bridge
     - [ ] Configuration
     - [ ] Observer
@@ -274,6 +264,18 @@ Design Patterns PHP (plein de paterns avec exemples de code et diagrammes de cla
 
 ``` bash
 composer test
+```
+
+## Psalm (static analysis)
+
+``` bash
+composer psalm
+```
+
+## Génération diagrames de classe
+
+``` bash
+php generateUmlCD.php
 ```
 
 ## Changelog
