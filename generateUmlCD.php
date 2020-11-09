@@ -34,6 +34,7 @@ function getDirs(): array
         'Creational' => [
             'Factory/AbstractFactory',
             'Singleton',
+            'Prototype',
         ],
         'Structural' => [
             'Proxy',

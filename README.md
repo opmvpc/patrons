@@ -148,7 +148,18 @@ Utilisation:
 * Un reader de fichier différent en fonction de l'OS
 
 ## Prototype
-Cloner des objets plutôt que de les créer par l'opération "new ObjectClass()". Se rélèle moins couteux et demande souvent moins de code quand on a besoin de plusieurs objets similaires.
+Cloner des objets plutôt que de les créer par l'opération "new ObjectClass()". Se rélèle moins couteux et demande souvent moins de code quand on a besoin de plusieurs objets similaires. Attention, il faut implémenter la méthode clone pour faire des deepcopies.
+
+Utilisations:
+
+* Interface graphique de création de niveau de jeux video.
+* logiciel CAD?
+
+Exercice: Utiliser une classe abstraite qui utilise un array pour stocker les valeurs des attributs et fourni une méthode clone qui copie les attributs
+
+[code du pattern Prototype](src/Creational/Prototype)
+
+![](src/Creational/Prototype/cd.png)
 
 # Structural
 ## Proxy
