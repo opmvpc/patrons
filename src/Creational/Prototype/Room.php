@@ -6,12 +6,10 @@ namespace Opmvpc\Patrons\Creational\Prototype;
 
 class Room extends Prototype
 {
-    public static int $roomsCount = 0;
-
     public function __construct()
     {
         $this->attributes = [
-            'roomId' => ++static::$roomsCount,
+            'roomId' => 1,
             'walls' => [],
         ];
     }
@@ -28,6 +26,5 @@ class Room extends Prototype
     public function __clone()
     {
         parent::__clone();
-        $this->attributes['roomId'] = ++static::$roomsCount;
     }
 }

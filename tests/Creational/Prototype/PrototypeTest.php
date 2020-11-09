@@ -22,9 +22,10 @@ class PrototypeTest extends TestCase
     {
         $floor = new Floor();
         $secondFloor = clone $floor;
+        $secondFloor['floorId'] = 2;
         $this->assertInstanceOf(Floor::class, $secondFloor);
-        $this->assertEquals(2, $floor['floorId']);
-        $this->assertEquals(3, $secondFloor['floorId']);
+        $this->assertEquals(1, $floor['floorId']);
+        $this->assertEquals(2, $secondFloor['floorId']);
     }
 
     /** @test */
@@ -40,19 +41,26 @@ class PrototypeTest extends TestCase
         $floor = new Floor();
         $room = new Room();
         $room2 = clone $room;
+        $room2['roomId'] = 2;
         $floor->addRoom($room);
+        $this->assertCount(1, $floor['rooms']);
         $floor->addRoom($room2);
+        $this->assertCount(2, $floor['rooms']);
 
         $this->assertEquals(1, $room['roomId']);
         $this->assertEquals(2, $room2['roomId']);
         $this->assertEquals(1, $floor['rooms'][0]['roomId']);
         $this->assertEquals(2, $floor['rooms'][1]['roomId']);
 
+
         $floorCopy = clone $floor;
-        $this->assertEquals(5, $floor['floorId']);
-        $this->assertEquals(6, $floorCopy['floorId']);
-        $this->assertEquals(3, $floorCopy['rooms'][0]['roomId']);
-        $this->assertEquals(4, $floorCopy['rooms'][1]['roomId']);
+        $floorCopy['floorId'] = 2;
+        $this->assertEquals(1, $floor['floorId']);
+        $this->assertEquals(2, $floorCopy['floorId']);
+        $this->assertEquals(1, $floorCopy['rooms'][0]['roomId']);
+        $this->assertEquals(2, $floorCopy['rooms'][1]['roomId']);
+        $this->assertCount(2, $floor['rooms']);
+        $this->assertCount(2, $floorCopy['rooms']);
     }
 
     /** @test */
@@ -75,6 +83,7 @@ class PrototypeTest extends TestCase
         $room->addWall($wall3);
         $room->addWall($wall4);
 
+        $this->assertCount(4, $room['walls']);
         $this->assertEquals(2, $floor['rooms'][0]['walls'][0]['height']);
         $this->assertEquals(2, $floor['rooms'][0]['walls'][0]['width']);
         $this->assertEquals(2, $floor['rooms'][0]['walls'][1]['height']);
@@ -85,6 +94,7 @@ class PrototypeTest extends TestCase
         $this->assertEquals(3, $floor['rooms'][0]['walls'][3]['width']);
 
         $roomCopy = clone $room;
+        $this->assertCount(4, $roomCopy['walls']);
         $floor->addRoom($roomCopy);
         $this->assertEquals(2, $floor['rooms'][1]['walls'][0]['height']);
         $this->assertEquals(2, $floor['rooms'][1]['walls'][0]['width']);

@@ -20,16 +20,13 @@ abstract class Prototype implements \ArrayAccess
     {
         $attributesCopy = [];
         foreach ($this->attributes as $attributeKey => $attributeValue) {
-            if (is_iterable($attributeValue)) {
-                $iterableCopy = (array)$attributeValue;
+            if (is_array($attributeValue)) {
+                $iterableCopy = [];
                 foreach ($attributeValue as $key => $value) {
                     $value = (object)$value;
                     $iterableCopy[$key] = clone $value;
                 }
                 $attributesCopy[$attributeKey] = $iterableCopy;
-            } elseif (is_object($attributeValue)) {
-                $value = (object)$attributeValue;
-                $attributesCopy[$attributeKey] = clone $value;
             } else {
                 $attributesCopy[$attributeKey] = $attributeValue;
             }
