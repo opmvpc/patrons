@@ -142,6 +142,8 @@ Utilisations:
 
 Exercice: Utiliser une classe abstraite qui utilise un array pour stocker les valeurs des attributs et fourni une méthode clone qui copie les attributs
 
+Bonus php: On implémente l'interface ArrayAccess pour accéder au valeurs de la propriété `$attributes` d'un de nos objets avec la même notation que celle d'un tableau (Ex: `$floor['floorId]`)
+
 [code du pattern Prototype](src/Creational/Prototype)
 
 ![](src/Creational/Prototype/cd.png)
