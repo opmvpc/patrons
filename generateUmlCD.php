@@ -39,6 +39,7 @@ function getDirs(): array
         'Structural' => [
             'Proxy',
             'Decorator',
+            'Composite',
         ],
     ];
 
