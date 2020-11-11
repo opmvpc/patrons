@@ -40,6 +40,7 @@ function getDirs(): array
             'Proxy',
             'Decorator',
             'Composite',
+            'Bridge',
         ],
     ];
 

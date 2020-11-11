@@ -52,8 +52,9 @@ class FileManager
 
         $foundComponent = null;
         foreach ($currentComponent->children() as $child) {
-            if ($this->findRec($componentNameToFind, $child) !== null) {
-                $foundComponent = $this->findRec($componentNameToFind, $child);
+            $result = $this->findRec($componentNameToFind, $child);
+            if ($result !== null) {
+                $foundComponent = $result;
             }
         }
 

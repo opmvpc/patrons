@@ -222,6 +222,22 @@ Solution:
 ## Facade
 
 ## Bridge
+Permet de découpler l'implémentation d'une interface et de découpler notre code de l'interface.
+On peut ainsi changer d'implémentation durant l'exécution.
+
+Exemple: Système de réponse qui peut render de l'Html soit du Json en fonction de l'implémentation de renderer utilisée.
+
+[code du pattern Bridge](src/Structural/Bridge)
+
+![](src/Structural/Bridge/cd.png)
+
+### Exercices
+#### Ajouter une implémentation TailwindCSS et observer l'impact sur l'architecture:
+* Pas d'impacte notable. On doit juste créer une nouvelle classe qui implémente RendererImplementation
+#### RendererImplementation est une interface. Comment on peut l'améliorer en utilisant une classe abstraite (voir pattern Template)
+* Todo
+#### Comment une Abstract Factory pourrait contribuer au pattern Bridge?
+On pourrait utiliser les abstract factory pour choisir l'implémentation utilisée en fonction des besoins dans chaque factory.
 
 ## Flyweight
 
@@ -258,9 +274,9 @@ Solution:
     - [x] Abstract Factory
     - [x] Proxy
     - [x] Decorator
-    - [ ] Composite
+    - [x] Composite
     - [x] Prototype
-    - [ ] Bridge
+    - [x] Bridge
     - [ ] Configuration
     - [ ] Observer
     - [ ] Flyweight
