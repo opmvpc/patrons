@@ -372,4 +372,30 @@ class FileManagerTest extends TestCase
         $fileManager->createFolder('coucou');
         $this->assertFalse($fileManager->find('first')->isSameAs($fileManager->find('second')));
     }
+
+    /** @test */
+    public function test_is_in_same_folder_as_file()
+    {
+        $fileManager = new FileManager();
+        $fileManager->createFolder('parent');
+        $fileManager->goTo('parent');
+        $fileManager->createFile('test.jpg');
+        $fileManager->createFile('test2.jpg');
+        $jpg1 = $fileManager->current()->children()[0];
+        $jpg2 = $fileManager->current()->children()[1];
+        $this->assertTrue($jpg1->isInSameFolderAs($jpg2));
+    }
+
+    /** @test */
+    public function test_is_in_same_folder_as_file_fail()
+    {
+        $fileManager = new FileManager();
+        $fileManager->createFile('test.jpg');
+        $fileManager->createFolder('parent');
+        $fileManager->goTo('parent');
+        $fileManager->createFile('test2.jpg');
+        $jpg1 = $fileManager->root()->children()[0];
+        $jpg2 = $fileManager->current()->children()[0];
+        $this->assertFalse($jpg1->isInSameFolderAs($jpg2));
+    }
 }
