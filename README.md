@@ -199,10 +199,25 @@ Solution:
 
 ## Composite
 Exercice: Gestionnaire de fichiers avec le pattern Composite.
+* création de fichiers et dossiers
+* supprimer des fichiers et dossiers
+* déplacer des fichiers et dossiers
+* copier des fichiers et dossiers
+* check si des fichiers et dossiers sont les même / ont la même structure
+* check si deux fichiers ont la même structure
 
 [code du pattern Composite](src/Structural/Composite)
 
 ![](src/Structural/Composite/cd.png)
+Exercice: Gestionnaire de fichiers avec le pattern Composite.
+
+Solution:
+* Ajout d'une classe FileManager qui permet de simplifier l'api
+* Quelques méthodes en plus (find($name), goTo($path))
+* Attention, l'écriture sur disque n'est pas implémentée. Pour cela, il faudrait juste compléter certaines méthodes.
+
+#### Comment utiliser le pattern Visitor avec le pattern Composite?
+#### Comment utiliser le pattern PlayerRole avec le pattern Composite pour implémenter la transformation d'une feuille/container en component?
 
 ## Facade
 
