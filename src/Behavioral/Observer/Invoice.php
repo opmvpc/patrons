@@ -32,7 +32,7 @@ class Invoice extends Observed
      */
     public function setAttribute(string $attribute, $value): void
     {
-        if ($this->state[$attribute] !== $value) {
+        if (! isset($this->state[$attribute]) || $this->state[$attribute] !== $value) {
             $this->state[$attribute] = $value;
             $this->notify();
         }

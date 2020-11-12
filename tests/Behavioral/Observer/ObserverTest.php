@@ -59,4 +59,22 @@ class ObserverTest extends TestCase
         $this->assertCount(1, $reportingObserver->getNotifiers());
         $this->assertCount(0, $sendInvoiceObserver->getNotifiers());
     }
+
+    /** @test */
+    public function it_does_not_update_if_value_is_the_same()
+    {
+        $reportingObserver = new Reporting();
+
+        $invoice = new Invoice();
+        $invoice->setAttribute('id', 1234);
+        $invoice->attach($reportingObserver);
+
+        $invoice->setAttribute('id', 1234);
+
+        $this->assertCount(0, $reportingObserver->getNotifiers());
+
+        $invoice->setAttribute('id', 3333);
+
+        $this->assertCount(1, $reportingObserver->getNotifiers());
+    }
 }
