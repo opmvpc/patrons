@@ -31,6 +31,9 @@ function generateDiagrams(): void
 function getDirs(): array
 {
     $patterns = [
+        'Behavioral' => [
+            'Observer',
+        ],
         'Creational' => [
             'Factory/AbstractFactory',
             'Singleton',

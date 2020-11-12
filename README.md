@@ -245,19 +245,42 @@ On pourrait utiliser les abstract factory pour choisir l'implémentation utilis�
 
 # Behavioral
 
-## Command
-
-## Memento
-
 ## Observer
+Utilisations:
+* Quand un changement sur un objet demande de changer d'autres objets
+* Quand on doit pouvoir notifier d'autres objets sans que couplage avec ces objets (notification par broadcast)
+* Permet de mettre à jour "réactivement" une classe sur base d'un évènement ou si les données d'une autre classe change
+* Permet de découper une grosse classe en plusieurs classes qui seront observers de la classe factorisée.
 
-## Visitor
+[code du pattern Observer](src/Behavioral/Observer)
+
+![](src/Behavioral/Observer/cd.png)
+
+En php, on va utiliser les interfaces SplObserver et SplSubject (inclues dans le langage php) qui sont dédiées à l'implémentation du pattern Observer.
+
+On va aussi utiliser la structure de données dédiée au stockage d'objets SplObjectStorage (inclue dans le langage php) pour enregistrer les observers dans la classe Observed.
+
+### Exercices
+#### Améliorer le pattern en évitant les updates inutiles (ex: les données n'ont pas changées)
+* Ajout d'un check dans la méthode setAttribute() de la classe Observed
+* on peut regarder quels sont les changements de state si on garde en mémoire l'état précédent dans les observers
+
+#### Utiliser le pattern Observer avec le pattern State pour que la class soit consciente des transitions d'état de certains objets.
+ex: objet x doit être notifié de chagque changement de l'état courant de l'objet y
+
+TODO
 
 ## Template
 
 ## State
 
 ## Interceptor
+
+## Memento
+
+## Command
+
+## Visitor
 
 ## Configuration
 
@@ -277,11 +300,14 @@ On pourrait utiliser les abstract factory pour choisir l'implémentation utilis�
     - [x] Composite
     - [x] Prototype
     - [x] Bridge
-    - [ ] Configuration
     - [ ] Observer
-    - [ ] Flyweight
     - [ ] Intercepteur
+    - [ ] Flyweight
+    - [ ] State
     - [ ] Visitor
+    - [ ] Template
+    - [ ] Strategy
+    - [ ] Configuration
     - [ ] Command
     - [ ] Facade
     - [ ] Memento
