@@ -216,8 +216,17 @@ Solution:
 * Quelques méthodes en plus (find($name), goTo($path))
 * Attention, l'écriture sur disque n'est pas implémentée. Pour cela, il faudrait juste compléter certaines méthodes.
 
+### Exercices
 #### Comment utiliser le pattern Visitor avec le pattern Composite?
+TODO
 #### Comment utiliser le pattern PlayerRole avec le pattern Composite pour implémenter la transformation d'une feuille/container en component?
+TODO
+
+### Amélioration php
+On pourrait utiliser les interface :
+* (SplObjectStorage)[https://www.php.net/manual/fr/class.splobjectstorage.php] dans la classe Component pour stocker les enfants
+* (RecursiveIterator)[https://www.php.net/manual/fr/class.recursiveiterator.php] Pour naviguer dans les enfants
+* (SeekableIterator)[https://www.php.net/manual/fr/class.seekableiterator.php] Pour trouver des enfants (la logique est déjà écrite, il faudrait juste changer les noms de méthodes) ou naviguer dans l'arbre depuis la root dans le FileManager
 
 ## Facade
 
@@ -240,6 +249,17 @@ Exemple: Système de réponse qui peut render de l'Html soit du Json en fonction
 On pourrait utiliser les abstract factory pour choisir l'implémentation utilisée en fonction des besoins dans chaque factory.
 
 ## Flyweight
+* Permet d'éviter d'avoir une grande quantité d'objets qui se ressemblent en mémoire
+### Exemple
+Traitement de texte pour lequel on peut appliquer différents styles à du texte.
+On veut ici éviter d'avoir un objet pour chaque lettre par exemple.
+
+### Comment?
+On utilise une factory pour créer les objets Lettre. La factory créera un objet lettre s'il n'est pas encore instancié, sinon il utilisera une référence vers l'objet qui existe déjà.
+Cela permet aux objets Lettre d'être aggnostiques aux contexte dans lesquels ils sont utilisés (et ainsi réutilisables dans plusieurs contextes différents).
+Pour ce qui est du style de la lettre, on ira le stocker dans un objet conteneur (par exemple Mot)
+
+![](src/Structural/FlyWeight/cd.png)
 
 ## Adapter
 
@@ -270,22 +290,79 @@ ex: objet x doit être notifié de chagque changement de l'état courant de l'ob
 
 TODO
 
+## Interceptor
+* Ajouter ou enlever des fonctionnalités pendant l'exécution (système de plugin)
+* Modifier des fonctionnalités pendant l'exécution
+* Déclancher des fonctionnalités de facon automatique (installation d'un plugin)
+
+
+* + Extensibilité
+* + Flexibilité
+* + Séparation des préoccupations
+* + Réutilisabilité
+* - Effets de bord
+* - Difficulté à gérer les envent rérentrant (ex: message tcp envoyé et recapté par le mécanisme ... boucle infinie)
+* - difficulté d'antaciper les extensions futur du framework
+
+![](src/Behavioral/Interceptor/cd.png)
 ## Template
 
 ## State
+Permet d'abstraire une machine à état fini sous forme de classes.
 
-## Interceptor
+* Utilisation d'une interface définissant les différentes transitions
+* Implémentation de l'interface par une classe concrète qui utilisera d'autres objets pour effectuer des opérations (un peu comme pour le pattern Proxy)
+* Une classe abstraite dont les méthodes renvoient des exceptions
+* Cette classe abstraite est implémentée par une classe par État dans lesquels on override que les méthodes nécessaires (comme ca on renvoie automatiquement une execption si une transition n'est pas possible)
+* La classe concrète possède un objet courrant (un état) sur lequel seront appelées les méthodes (transitions)
 
+### Avantages:
+* Structure efficacement le code
+* rend les trasitions explicites
+
+![](src/Behavioral/State/cd.png)
 ## Memento
 
 ## Command
 
+## Interpreter
+Permet de définir la sémantique opérationnelle d'un langage.
+Pour cela, on va représenter notre arbre abstrait syntaxique avec un ensemble de classe qui concrétisent une classe abstraite Node.
+La classe Node possède une méthode "interpret" qui défini la sémantique opérationnelle d'un élément de l'arbre abstrait syntaxique.
+Cette méthode interpret modifie l'environnement d'exécution (context).
+Ce pattern fonctionne mieux avec une grammaire simple et si l'éfficacité n'est pas un critère prépondérant. Si c'est le cas, on préfèrera créer un compilateur complet.
+![](src/Behavioral/Interpreter/cd.png)
+
 ## Visitor
+### But
+* Permet de découpler les opérations sur une structure de données
+* Découpler des taches qui ne sont pas liés les unes aux autres
+
+### Comment?
+Utiliser une classe abstraite Visitor qu'on pourra implémenter de plusieurs façon en fonction des traitements voulus (ex: X86Visitor, DocHtmlVisitor...)
+
+### Avantages
+* Ajout facile de nouvelles fonctionnalités
+* Utiliser un accumulateur (ex: table des symboles). Sans le pattern l'accumulateur devrait être passé à toutes les méthodes soit utilisé en variable globale
+### Désavantages
+* Quand on ajoute un type de Node, on doit ajouter des méthodes pour le traiter dans chaques visiteur (sauf si on utilise des classes abstraites pour chaque visiteur avec des comportements par défaut comme ANTRL)
+* On casse l'encapsulation (besoin de mettre en public toutes les méhtodes, l'utilisateur pourrait avoir besoin d'un peu tout)
+* La traversée de l'AST est déterminée par le programme qu'il représente. On ne choisit pas la facon dont la traversée va se faire.
+
+![](src/Behavioral/Visitor/cd.png)
 
 ## Configuration
-
-# Autres Patterns
-## Interpreter
+### But
+* Réunir à un seul endroit le code de configuration des objets (ex: relations entre des objets)
+* Préparer les objets pour qu'ils puissent coopérer
+* Rendre explicite le cycle de vie de ces objets
+![](src/Behavioral/Configuration/problem.png)
+### Avantages
+* Cacher et factoriser la logique de la configuration des objets
+* facilité la documentation
+* possibilité d'observer la configuration
+### Désavantages
+![](src/Behavioral/Configuration/cd.png)
 
 ## TODO
 - [x] Découper en catégories (behavioral, creational, structural)
