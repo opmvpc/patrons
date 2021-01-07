@@ -48,7 +48,7 @@ Attention, le contenu est en construction!
 * [Facade](#Facade)
 * [Bridge](#Bridge)
 * [Flyweight](#Flyweight)
-* [Adapter](#Adapter)
+* [Interpreter](#Interpreter)
 
 
 **[Behavioral](#Behavioral)**
@@ -60,9 +60,8 @@ Attention, le contenu est en construction!
 * [State](#State)
 * [Interceptor](#Interceptor)
 * [Configuration](#Configuration)
+* [Strategy](#Strategy)
 
-**[Autres Patterns](#Autres-Patterns)**
-* [Interpreter](#Interpreter)
 
 **[Bibliographie](#Bibliographie)**
 
