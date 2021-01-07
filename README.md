@@ -229,6 +229,12 @@ On pourrait utiliser les interface :
 * (SeekableIterator)[https://www.php.net/manual/fr/class.seekableiterator.php] Pour trouver des enfants (la logique est déjà écrite, il faudrait juste changer les noms de méthodes) ou naviguer dans l'arbre depuis la root dans le FileManager
 
 ## Facade
+### But
+* Offrir une interface unifiée pour un ensemble d'interface d'un sous système.
+* Une facade défini une interface de plus haut niveau qui rend un sous système plus simple à utiliser
+* Cacher l'implémentation "sale" de fonctionnalités
+
+![](src/Structural/Facade/cd.png)
 
 ## Bridge
 Permet de découpler l'implémentation d'une interface et de découpler notre code de l'interface.
@@ -260,8 +266,6 @@ Cela permet aux objets Lettre d'être aggnostiques aux contexte dans lesquels il
 Pour ce qui est du style de la lettre, on ira le stocker dans un objet conteneur (par exemple Mot)
 
 ![](src/Structural/FlyWeight/cd.png)
-
-## Adapter
 
 # Behavioral
 
@@ -306,7 +310,14 @@ TODO
 
 ![](src/Behavioral/Interceptor/cd.png)
 ## Template
+### But
+* définir le squelette d'un algorithme pour factoriser plusieurs classes aux comportements communs.
 
+### Comment?
+* Définir une classe abstraite avec des implémentations pour les méthodes communes
+* Les classes qui la concrétise redéfiniront le comportement des méthodes qui ont des comportements différents
+
+![](src/Behavioral/Template/cd.png)
 ## State
 Permet d'abstraire une machine à état fini sous forme de classes.
 
@@ -321,9 +332,58 @@ Permet d'abstraire une machine à état fini sous forme de classes.
 * rend les trasitions explicites
 
 ![](src/Behavioral/State/cd.png)
+
+## Strategy
+
+### But
+* Définir une famille d'algorithmes, les encapsuler et les rendre interchangeables.
+* Le pattern permet
+
+### Comment
+* Définition d'une interface communes aux différentes classes d'algorithmes
+
+### Avantages
+* Technique de factorisation
+* Alternative au sous classes en fonction d'un contexte
+* Élimination d'instructions conditionnelles
+
+# Désavantages
+* Le client doit être mis au courant des différentes stratégies disponibles et de comment elles diffèrent les unes des autres, leurs avantages et inconvénients
+* Toutes les stratégies utilisent la même interface, quelle que soit la complexité des différents algos qui l'implémentent. Par exemple, toutes les stratégies implémentées n'utilisent pas tous les paramètres.
+
+
+![](src/Behavioral/Strategy/cd.png)
+
 ## Memento
 
+### But
+Sans violer le principe d'encapsulation, capturer et externaliser l'état interne d'un objet et ainsi permettre de restauré cet état plus tard si besoin
+
+### Comment
+* Déclaration d'une interface sans méthodes implémentée par les objets contenant les états
+* Gestion des objets à l'aide d'une autre classe dédiée à cet effet
+* L'application dispose d'une collection des différents états des objets et peut ainsi revenir à un état antérieur si besoin
+
+![](src/Behavioral/Memento/cd.png)
+
 ## Command
+### But
+* Encapsuler l'invocation de commandes
+* Permettre des fonctionnalité undo/redo
+* Création de Macro commandes qui sont composées de plusieurs commandes
+
+### Exemples
+* Undo/Redo dans un editeur text
+* outils CLI
+
+## Bénéfices
+* Découple l'objet qui invoque la commande de l'objet qui sait comment produire le résultat attendu
+* Les commandes deviennent des objets qui peuvent être étendus ou sérialisés
+* On peut assembler des commandes en une commande composite
+* On peut facilement créer de nouvelle commande en ajoutant une nouvelle classe
+* Concept intéressant pour faciliter l'implémentation d'un processus transactionnel
+
+![](src/Behavioral/Command/cd.png)
 
 ## Interpreter
 Permet de définir la sémantique opérationnelle d'un langage.
@@ -361,7 +421,10 @@ Utiliser une classe abstraite Visitor qu'on pourra implémenter de plusieurs fa�
 * Cacher et factoriser la logique de la configuration des objets
 * facilité la documentation
 * possibilité d'observer la configuration
-### Désavantages
+### Améliorations
+* Ajouter le pattern observer
+* Pattern strategy pour avoir plusieurs configurations dépendant du contexte (ex: online/offline)
+* Gérer le cycle de vie des objets avec le pattern State
 ![](src/Behavioral/Configuration/cd.png)
 
 ## TODO
